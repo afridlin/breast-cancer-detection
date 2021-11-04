@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# run this script once to set up your development environment for the breast cancer detection
+# run this script once before you start developing
 
 # install required python modules
 pip3 install numpy pandas matplotlib seaborn

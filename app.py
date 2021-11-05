@@ -19,5 +19,5 @@ import seaborn
 
 # Jump to 4:30 in the video: https://www.youtube.com/watch?v=NSSOyhJBmWY&t=270s
 
-# Read the breast cancer data from the file data.csv
-# [ YOUR CODE STARTS HERE ]
+# Load the breast cancer data from the file data.csv
+# [ YOUR CODE STARTS HERE - DELETE THIS LINE ]

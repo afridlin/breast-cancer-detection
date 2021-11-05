@@ -3,7 +3,7 @@
 # run this script once before you start developing
 
 # install required python modules
-pip3 install numpy pandas matplotlib seaborn
+pip3 install numpy pandas matplotlib seaborn scikit-learn
 
 # clone the git repository including some basic code and the breast cancer data
 git clone https://github.com/afridlin/breast-cancer-detection.git

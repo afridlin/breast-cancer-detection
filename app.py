@@ -27,7 +27,9 @@ from sklearn.preprocessing import LabelEncoder  # Scikit-learn is a library for 
 # Watch the video from 4:30 to 8:00 (https://www.youtube.com/watch?v=NSSOyhJBmWY&t=270s)
 # NOTE: We don't need to upload the file as we are working on our local computer
 
-# [ YOUR CODE STARTS HERE - DELETE THIS LINE ]
+data_frame = pandas.read_csv('data.csv')
+seaborn.countplot(x='diagnosis', data=data_frame)
+plot.show()
 
 # After that go to 13:10 in the video: https://www.youtube.com/watch?v=NSSOyhJBmWY&t=790s
 

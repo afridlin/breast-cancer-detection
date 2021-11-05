@@ -10,11 +10,12 @@
 # A library is a collection of resources, like pre-written code, used by computer programs
 # More info: https://en.wikipedia.org/wiki/Library_(computing)
 
-import numpy                                    # NumPy is a library that offers mathematical functions and adds support for vectors and matrices
-import pandas                                   # Pandas is a library for managing and analysing data
-import matplotlib.pyplot as plot                # Matplotlib is a library for creating graphical visualizations
-import seaborn                                  # Seaborn is a library for data visualization based on Matplotlib (see above)
-from sklearn.preprocessing import LabelEncoder  # Scikit-learn is a library for machine learning
+import numpy                                         # NumPy is a library that offers mathematical functions and adds support for vectors and matrices
+import pandas                                        # Pandas is a library for managing and analysing data
+import matplotlib.pyplot as plot                     # Matplotlib is a library for creating graphical visualizations
+import seaborn                                       # Seaborn is a library for data visualization based on Matplotlib (see above)
+from sklearn.preprocessing import LabelEncoder       # Scikit-learn is a library for machine learning
+from sklearn.model_selection import train_test_split
 
 # NOTE: All libraries were installed previously by the setup script that I've sent you
 # To install a library manually execute 'pip3 install <package-name>' in your terminal

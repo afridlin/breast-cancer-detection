@@ -14,8 +14,11 @@ import numpy                                         # NumPy is a library that o
 import pandas                                        # Pandas is a library for managing and analysing data
 import matplotlib.pyplot as plot                     # Matplotlib is a library for creating graphical visualizations
 import seaborn                                       # Seaborn is a library for data visualization based on Matplotlib (see above)
-from sklearn.preprocessing import LabelEncoder       # Scikit-learn is a library for machine learning
+
+# Scikit-learn is a library for machine learning
+from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 
 # NOTE: All libraries were installed previously by the setup script that I've sent you
 # To install a library manually execute 'pip3 install <package-name>' in your terminal

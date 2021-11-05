@@ -27,15 +27,6 @@ from sklearn.preprocessing import LabelEncoder  # Scikit-learn is a library for 
 # Watch the video from 4:30 to 8:00 (https://www.youtube.com/watch?v=NSSOyhJBmWY&t=270s)
 # NOTE: We don't need to upload the file as we are working on our local computer
 
-data_frame = pandas.read_csv('data.csv')
-seaborn.countplot(x='diagnosis', data=data_frame)
-plot.show()
+# [ YOUR CODE STARTS HERE - DELETE THIS LINE ]
 
 # After that go to 13:10 in the video: https://www.youtube.com/watch?v=NSSOyhJBmWY&t=790s
-
-
-
-# This is the last line of code which prevents the window from closing until a key is pressed #
-input("Press Enter to continue...")
-
-# To run the program execute 'python3 app.py' in your terminal

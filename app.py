@@ -31,6 +31,26 @@ from sklearn.preprocessing import StandardScaler
 # Watch the video from 4:30 to 8:00 (https://www.youtube.com/watch?v=NSSOyhJBmWY&t=270s)
 # NOTE: We don't need to upload the file as we are working on our local computer
 
-# [ YOUR CODE STARTS HERE - DELETE THIS LINE ]
+data_frame = pandas.read_csv('data.csv')
 
 # After that go to 13:10 in the video: https://www.youtube.com/watch?v=NSSOyhJBmWY&t=790s
+
+# Get the number of malignant (M) and benign (B) cells
+print(data_frame['diagnosis'].value_counts())
+
+# Visualize the numbers
+seaborn.countplot(data_frame['diagnosis'], label='count')
+plot.show()
+
+# Prepare the data for machine learning
+encoder = LabelEncoder()
+data_frame.iloc[:,1] = encoder.fit_transform(data_frame.iloc[:,1].values) # all rows, column 1 (diagnosis); starts from 0; 0 would be column 'id'
+
+# Correlate the first 4 columns (factors) to each other
+seaborn.pairplot(data_frame.iloc[:,1:5], hue='diagnosis')
+plot.show()
+
+# Get the correlation of the columns
+print(data_frame.iloc[:,1:12].corr())
+
+# Continue at https://youtu.be/NSSOyhJBmWY?t=1756

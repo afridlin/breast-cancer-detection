@@ -36,21 +36,29 @@ data_frame = pandas.read_csv('data.csv')
 # After that go to 13:10 in the video: https://www.youtube.com/watch?v=NSSOyhJBmWY&t=790s
 
 # Get the number of malignant (M) and benign (B) cells
-print(data_frame['diagnosis'].value_counts())
+# print(data_frame['diagnosis'].value_counts())
 
 # Visualize the numbers
-seaborn.countplot(data_frame['diagnosis'], label='count')
-plot.show()
+# seaborn.countplot(data_frame['diagnosis'], label='count')
+# plot.show()
 
 # Prepare the data for machine learning
 encoder = LabelEncoder()
 data_frame.iloc[:,1] = encoder.fit_transform(data_frame.iloc[:,1].values) # all rows, column 1 (diagnosis); starts from 0; 0 would be column 'id'
 
 # Correlate the first 4 columns (factors) to each other
-seaborn.pairplot(data_frame.iloc[:,1:5], hue='diagnosis')
-plot.show()
+# seaborn.pairplot(data_frame.iloc[:,1:5], hue='diagnosis')
+# plot.show()
 
 # Get the correlation of the columns
-print(data_frame.iloc[:,1:12].corr())
+# print(data_frame.iloc[:,1:12].corr())
 
 # Continue at https://youtu.be/NSSOyhJBmWY?t=1756
+
+plot.figure(figsize=(10,10))
+plot.gca().set_aspect('equal')
+seaborn.heatmap(data_frame.iloc[:,1:12].corr(), annot=True, fmt='.0%')
+plot.subplots_adjust(bottom=0.25)
+plot.show()
+
+# Continue at https://youtu.be/NSSOyhJBmWY?t=2040

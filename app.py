@@ -19,6 +19,9 @@ import seaborn                                       # Seaborn is a library for 
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 # NOTE: All libraries were installed previously by the setup script that I've sent you
 # To install a library manually execute 'pip3 install <package-name>' in your terminal
@@ -62,3 +65,26 @@ plot.subplots_adjust(bottom=0.25)
 plot.show()
 
 # Continue at https://youtu.be/NSSOyhJBmWY?t=2040
+
+x = data_frame.iloc[:, 2:31].values
+y = data_frame.iloc[:, 1].values
+
+# split the data into 75 % training data and 25 % testing data
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.25, random_state = 0)
+
+# scale the data (Feature Scaling)
+scaler = StandardScaler()
+x_train = scaler.fit_transform(x_train)
+x_test = scaler.fit_transform(x_test)
+
+def models(x_train, y_train):
+    log = LogisticRegression(random_state = 0)
+    log.fit(x_train, y_train)
+
+    tree = DecisionTreeClassifier(criterion = 'entropy', random_state = 0)
+    tree.fit(x_train, y_train)
+
+    forest = RandomForestClassifier(n_estimators = 10, criterion = 'entropy', random_state = 0)
+    forest.fit(x_train, y_train)
+
+    # Continue at https://youtu.be/NSSOyhJBmWY?t=2735

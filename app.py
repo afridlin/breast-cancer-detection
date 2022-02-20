@@ -22,6 +22,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import confusion_matrix
 
 # NOTE: All libraries were installed previously by the setup script that I've sent you
 # To install a library manually execute 'pip3 install <package-name>' in your terminal
@@ -87,4 +88,22 @@ def models(x_train, y_train):
     forest = RandomForestClassifier(n_estimators = 10, criterion = 'entropy', random_state = 0)
     forest.fit(x_train, y_train)
 
-    # Continue at https://youtu.be/NSSOyhJBmWY?t=2735
+    # print('Logistic Regression Training Accuracy', log.score(x_train, y_test))
+    # print('Decision Tree Classifier Training Accuracy', tree.score(x_train, y_test))
+    # print('Random Forest Classifier Training Accuracy', forest.score(x_train, y_test))
+
+    return log, tree, forest
+
+model = models(x_train, y_train)
+
+cm = confusion_matrix(y_test, model[0].predict(x_test))
+
+tn = cm[0][0]
+tp = cm[1][1]
+fn = cm[1][0]
+fp = cm[0][1]
+
+print(cm)
+print('Testing Accuracy: ', (tp + tn) / (tp + tn + fn + fp))
+
+# Continue at https://youtu.be/NSSOyhJBmWY?t=3203

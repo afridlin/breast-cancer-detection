@@ -22,7 +22,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
 
 # NOTE: All libraries were installed previously by the setup script that I've sent you
 # To install a library manually execute 'pip3 install <package-name>' in your terminal
@@ -59,11 +59,11 @@ data_frame.iloc[:,1] = encoder.fit_transform(data_frame.iloc[:,1].values) # all 
 
 # Continue at https://youtu.be/NSSOyhJBmWY?t=1756
 
-plot.figure(figsize=(10,10))
-plot.gca().set_aspect('equal')
-seaborn.heatmap(data_frame.iloc[:,1:12].corr(), annot=True, fmt='.0%')
-plot.subplots_adjust(bottom=0.25)
-plot.show()
+# plot.figure(figsize=(10,10))
+# plot.gca().set_aspect('equal')
+# seaborn.heatmap(data_frame.iloc[:,1:12].corr(), annot=True, fmt='.0%')
+# plot.subplots_adjust(bottom=0.25)
+# plot.show()
 
 # Continue at https://youtu.be/NSSOyhJBmWY?t=2040
 
@@ -96,14 +96,28 @@ def models(x_train, y_train):
 
 model = models(x_train, y_train)
 
-cm = confusion_matrix(y_test, model[0].predict(x_test))
+# cm = confusion_matrix(y_test, model[0].predict(x_test))
 
-tn = cm[0][0]
-tp = cm[1][1]
-fn = cm[1][0]
-fp = cm[0][1]
+# tn = cm[0][0]
+# tp = cm[1][1]
+# fn = cm[1][0]
+# fp = cm[0][1]
 
-print(cm)
-print('Testing Accuracy: ', (tp + tn) / (tp + tn + fn + fp))
+# print(cm)
+# print('Testing Accuracy: ', (tp + tn) / (tp + tn + fn + fp))
 
 # Continue at https://youtu.be/NSSOyhJBmWY?t=3203
+
+# get metrics of the models
+for i in range(len(model)):
+    print('Model', i)
+    print(classification_report(y_test, model[i].predict(x_test)))
+    print(accuracy_score(y_test, model[i].predict(x_test)))
+    print()
+
+prediction = model[2].predict(x_test)
+print('Predicted Diagnosis:')
+print(prediction)
+print()
+print('Actual Diagnosis:')
+print(y_test)
